@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: deployment-app
-          image: alanjose2929/deployment-app:2
+          image: alanjose2929/deployment-app:4
 
           ports:
             - containerPort: 8000
