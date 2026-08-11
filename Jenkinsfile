@@ -11,14 +11,15 @@ pipeline {
         }
 
         stage('Build and Test') {
-    steps {
-        sh 'ls -ltr'
-        sh 'python3 --version'
-        sh 'python3 -m py_compile app.py'
-        echo 'FastAPI application syntax check successful'
-    }
-}
-
+            steps {
+                sh 'ls -ltr'
+                sh 'python3 --version'
+                sh 'pip3 --version'
+                sh 'pip3 install -r requirements.txt'
+                sh 'python3 -m py_compile app.py'
+                echo 'FastAPI application build/test successful'
+            }
+        }
         stage('SonarQube Analysis') {
             steps {
                 script {
