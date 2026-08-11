@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: deployment-app
+  labels:
+    app: deployment-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: deployment-app
+
+  template:
+    metadata:
+      labels:
+        app: deployment-app
+
+    spec:
+      containers:
+        - name: deployment-app
+          image: alanjose2929/deployment-app:1
+
+          ports:
+            - containerPort: 8000
+
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
